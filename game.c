@@ -2,6 +2,13 @@
 #include "game.h"
 #include "../LCD/LCD.h"
 
+/*
+ * Created: 10 Nov 2013
+ * Author: C15Brandon.Belcher
+ * Description: Implements the logic behind the
+ * game display on the LCD in the black box in Lab 5
+ * of ECE 382.
+ */
 unsigned char initPlayer() {
 	return 0x80;
 }
@@ -16,6 +23,7 @@ void clearPlayer(unsigned char player) {
 	writeDataByte(' ');
 }
 
+//move the player according to which button was pressed
 unsigned char movePlayer(unsigned char player, unsigned char direction) {
 	switch (direction) {
 	case UP:
@@ -44,6 +52,7 @@ unsigned char movePlayer(unsigned char player, unsigned char direction) {
 	return player;
 }
 
+//check to see if the player is the bottom left block of the LCD
 char didPlayerWin(unsigned char player) {
 	return player == 0xC7;
 }
